@@ -2,7 +2,6 @@ package com.example.domznaniy2020;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class SubjectActivity extends AppCompatActivity {
+public class MathActivity extends AppCompatActivity {
 
     public TextView countLabel;
     public TextView questionLabel;
@@ -28,16 +27,16 @@ public class SubjectActivity extends AppCompatActivity {
 
     String quizData[][] = {
             // {"Question", "Right Answer", "choise1", "choise2", "choise3"}
-            {"Укажите в каком предложении присутствует причастие:", "он выиграл в турнире,взяв первое место", "мой брат вышел в магазин", "он спроектировал самолёт", "Андрей сказал ему «Не возвращайся больше домой!»" },
-            {"В каком слове допущена ошибка в транскрипции?", "[с'н'эк]"," [п'эс'инка] ", " [б'эр'ик]", "[б'ир'ига]" },
-            {"Какое слово не является родственным?", "положение", "излагать", "налаживать", "полагать "},
-            {"Какое существительное не относится ко II склонению?", "брон", "туш", " олень", "лунь "}
+            {"Приведите подобные слагаемые: 4x + 5 + 11x - 8", "-15x - 13", "-12x + 16", "15x - 3", "7x - 3" },
+            {"Раскройте скобки: -5x(y - 2z + 5)", "-5xy + 10xz - 25x", " y - 2z + 5 ", " –5ху – 10xz + 25x", " –5ху + 10xz – 25х" },
+            {"Раскройте скобки и приведите подобные слагаемые в выражении (1,3а – 4) – (6 + 2,7a).", "–10 – 4a", "4a – 2", "–1,4а – 10", "4a – 10"},
+            {"Преобразуйте выражение 2,5(–2х + 4y – z) в тождественно равное", "–5х – 10у + z", "5х + 10y – z", "–5х + I0y – 2,5z", "–5х + 10у – 2,5"}
     };
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_subject );
+        setContentView ( R.layout.activity_math );
 
         countLabel = findViewById ( R.id.countLabel );
         questionLabel = findViewById ( R.id.questionLabel );
@@ -88,5 +87,4 @@ public class SubjectActivity extends AppCompatActivity {
         // Удалить рандомный вариант
         quizArray.remove ( randomNum );
     }
-
 }

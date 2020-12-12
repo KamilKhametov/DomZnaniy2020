@@ -11,8 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.example.domznaniy2020.MathActivity;
 import com.example.domznaniy2020.R;
-import com.example.domznaniy2020.SubjectActivity;
+import com.example.domznaniy2020.RusActivity;
 import com.example.domznaniy2020.model.MyModel;
 
 import java.util.List;
@@ -60,7 +61,10 @@ public class AdapterForViewPager extends PagerAdapter {
             public void onClick( View v ) {
                 switch (position) {
                     case 0:
-                        context.startActivity ( new Intent ( context, SubjectActivity.class ) );
+                        context.startActivity ( new Intent ( context, RusActivity.class ) );
+                        break;
+                    case 1:
+                        context.startActivity ( new Intent (context, MathActivity.class ));
                         break;
                     default: break;
                 }
