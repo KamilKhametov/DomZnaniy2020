@@ -1,17 +1,18 @@
 package com.example.domznaniy2020.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.domznaniy2020.R;
+import com.example.domznaniy2020.SubjectActivity;
 import com.example.domznaniy2020.model.MyModel;
 
 import java.util.List;
@@ -39,16 +40,16 @@ public class AdapterForViewPager extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem( @NonNull ViewGroup container, int position ) {
-        View view =LayoutInflater.from ( context ).inflate ( R.layout.card_item, container, false );
+        View view=LayoutInflater.from ( context ).inflate ( R.layout.card_item, container, false );
 
-        ImageView imageThing = view.findViewById ( R.id.imageThing );
-        TextView titleThing = view.findViewById ( R.id.titleThing );
-        TextView descThing = view.findViewById ( R.id.descThing );
+        ImageView imageThing=view.findViewById ( R.id.imageThing );
+        TextView titleThing=view.findViewById ( R.id.titleThing );
+        TextView descThing=view.findViewById ( R.id.descThing );
 
-        MyModel myModel = myModelList.get ( position );
-        int image = myModel.getImage ();
-        final String title = myModel.getTitle ();
-        final String desc = myModel.getDesc ();
+        MyModel myModel=myModelList.get ( position );
+        int image=myModel.getImage ();
+        final String title=myModel.getTitle ();
+        final String desc=myModel.getDesc ();
 
         imageThing.setImageResource ( image );
         titleThing.setText ( title );
@@ -57,10 +58,16 @@ public class AdapterForViewPager extends PagerAdapter {
         view.setOnClickListener ( new View.OnClickListener () {
             @Override
             public void onClick( View v ) {
-                Toast.makeText ( context, titleThing.getText (), Toast.LENGTH_SHORT ).show ();
+                switch (position) {
+                    case 0:
+                        context.startActivity ( new Intent ( context, SubjectActivity.class ) );
+                        break;
+                    default: break;
+                }
+
             }
         } );
-        
+
         container.addView ( view, position );
         return view;
     }

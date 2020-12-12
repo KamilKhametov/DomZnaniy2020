@@ -1,5 +1,6 @@
 package com.example.domznaniy2020;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class TestActivity extends AppCompatActivity {
 
+    ActionBar actionBar;
     private List<MyModel> myModelList;
     private AdapterForViewPager adapterForViewPager;
     private ViewPager viewPager;
@@ -21,6 +23,9 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_test );
+
+        // Установка заголовка actionBar
+        setActionBar ();
 
         viewPager = findViewById ( R.id.viewPager );
         loadCard ();
@@ -55,7 +60,11 @@ public class TestActivity extends AppCompatActivity {
         viewPager.setAdapter ( adapterForViewPager );
         viewPager.setPadding ( 100,0,100,0 );
 
+    }
 
+    private void setActionBar(){
+        actionBar = getSupportActionBar ();
+        actionBar.setTitle ( "Тестирование" );
     }
 
 }

@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">DomZnaniy2020</string>
     <string name="text_main">Дом знаний</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    <string name="question_one">Вопрос 1</string>-->
+<!--    <string name="question_one_text">Укажите в каком предложении присутствует причастие:</string>-->
+
+<!--    <string name="answer1">1 мой брат вышел в магазин  </string>-->
+<!--    <string name="answer2">2 он спроектировал самолёт</string>-->
+<!--    <string name="answer3">3 он выиграл в турнире,взяв первое место</string>-->
+<!--    <string name="answer4">4 Андрей сказал ему «Не возвращайся больше домой!»</string>-->
+
+
 </resources>
