@@ -1,10 +1,17 @@
 package com.example.domznaniy2020;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +28,11 @@ public class RusActivity extends AppCompatActivity {
 
     private String rightAnswer;
     private int rightAnswerCount = 0;
-    private int quizCount = 1;
+    private int quizCount = 2;
+    private int randomNum;
+    LinearLayout layout;
+
+
 
     ArrayList<ArrayList<String>> quizArray = new ArrayList<> ();
 
@@ -65,7 +76,7 @@ public class RusActivity extends AppCompatActivity {
 
         // Генерация рандомного вопроса от 0 до 4
         Random random = new Random ();
-        int randomNum = random.nextInt (quizArray.size ());
+        randomNum = random.nextInt (quizArray.size ());
 
         // Выбор одного из вопросов
         ArrayList<String> quiz = quizArray.get ( randomNum );
@@ -87,5 +98,23 @@ public class RusActivity extends AppCompatActivity {
         // Удалить рандомный вариант
         quizArray.remove ( randomNum );
     }
+
+    public void checkAnswer( View view ){
+
+        Button answerBtn = findViewById ( view.getId () );
+        String btnText = answerBtn.getText ().toString ();
+
+        if(btnText.equals ( rightAnswer )){
+            rightAnswerCount = rightAnswerCount + 2;
+        }
+        showNextQuiz ();
+        if(quizArray.isEmpty ()){
+            Intent intent = new Intent (RusActivity.this, ActivityResult.class);
+            String a = String.valueOf ( rightAnswerCount );
+            intent.putExtra ( "key_one", a );
+            startActivity ( intent );
+        }
+    }
+
 
 }
