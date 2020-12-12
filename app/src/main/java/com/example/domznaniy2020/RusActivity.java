@@ -1,17 +1,13 @@
 package com.example.domznaniy2020;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,19 +23,17 @@ public class RusActivity extends AppCompatActivity {
     public Button answer4;
 
     private String rightAnswer;
-    private int rightAnswerCount = 0;
-    private int quizCount = 2;
+    private int rightAnswerCount=0;
+    private int quizCount=2;
     private int randomNum;
-    LinearLayout layout;
 
 
+    ArrayList<ArrayList<String>> quizArray=new ArrayList<> ();
 
-    ArrayList<ArrayList<String>> quizArray = new ArrayList<> ();
-
-    String quizData[][] = {
+    String quizData[][]={
             // {"Question", "Right Answer", "choise1", "choise2", "choise3"}
-            {"Укажите в каком предложении присутствует причастие:", "он выиграл в турнире,взяв первое место", "мой брат вышел в магазин", "он спроектировал самолёт", "Андрей сказал ему «Не возвращайся больше домой!»" },
-            {"В каком слове допущена ошибка в транскрипции?", "[с'н'эк]"," [п'эс'инка] ", " [б'эр'ик]", "[б'ир'ига]" },
+            {"Укажите в каком предложении присутствует причастие:", "он выиграл в турнире,взяв первое место", "мой брат вышел в магазин", "он спроектировал самолёт", "Андрей сказал ему «Не возвращайся больше домой!»"},
+            {"В каком слове допущена ошибка в транскрипции?", "[с'н'эк]", " [п'эс'инка] ", " [б'эр'ик]", "[б'ир'ига]"},
             {"Какое слово не является родственным?", "положение", "излагать", "налаживать", "полагать "},
             {"Какое существительное не относится ко II склонению?", "брон", "туш", " олень", "лунь "}
     };
@@ -49,15 +43,15 @@ public class RusActivity extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_rus );
 
-        countLabel = findViewById ( R.id.countLabel );
-        questionLabel = findViewById ( R.id.questionLabel );
-        answer1 = findViewById ( R.id.answer1 );
-        answer2 = findViewById ( R.id.answer2 );
-        answer3 = findViewById ( R.id.answer3 );
-        answer4 = findViewById ( R.id.answer4 );
+        countLabel=findViewById ( R.id.countLabel );
+        questionLabel=findViewById ( R.id.questionLabel );
+        answer1=findViewById ( R.id.answer1 );
+        answer2=findViewById ( R.id.answer2 );
+        answer3=findViewById ( R.id.answer3 );
+        answer4=findViewById ( R.id.answer4 );
 
-        for (int i=0; i < quizData.length ; i++) {
-            ArrayList<String> tmpArray = new ArrayList<> ();
+        for (int i=0; i < quizData.length; i++) {
+            ArrayList<String> tmpArray=new ArrayList<> ();
             tmpArray.add ( quizData[i][0] );  // question
             tmpArray.add ( quizData[i][1] );  // right answer
             tmpArray.add ( quizData[i][2] );  // choice 1
@@ -67,23 +61,32 @@ public class RusActivity extends AppCompatActivity {
             quizArray.add ( tmpArray );
 
         }
-        showNextQuiz();
+        showNextQuiz ();
     }
 
-    public void showNextQuiz(){
+    public void showNextQuiz() {
+
+        if (quizArray.isEmpty ()) {
+            Intent intent=new Intent ( RusActivity.this, ActivityResultForRus.class );
+            String a=String.valueOf ( rightAnswerCount );
+            intent.putExtra ( "key_one", a );
+            startActivity ( intent );
+            return;
+        }
+
         // Обновление QuizCountLabel
         countLabel.setText ( "Q" + quizCount );
 
         // Генерация рандомного вопроса от 0 до 4
-        Random random = new Random ();
-        randomNum = random.nextInt (quizArray.size ());
+        Random random=new Random ();
+        randomNum=random.nextInt ( quizArray.size () );
 
         // Выбор одного из вопросов
-        ArrayList<String> quiz = quizArray.get ( randomNum );
+        ArrayList<String> quiz=quizArray.get ( randomNum );
 
         // Установка вопроса и правильного ответа
         questionLabel.setText ( quiz.get ( 0 ) );
-        rightAnswer = quiz.get ( 1 );
+        rightAnswer=quiz.get ( 1 );
 
         // Удалить вопрос и перемешать варианты ответов
         quiz.remove ( 0 );
@@ -99,21 +102,16 @@ public class RusActivity extends AppCompatActivity {
         quizArray.remove ( randomNum );
     }
 
-    public void checkAnswer( View view ){
+    // Правильный ответ
+    public void checkAnswer( View view ) {
 
-        Button answerBtn = findViewById ( view.getId () );
-        String btnText = answerBtn.getText ().toString ();
+        Button answerBtn=findViewById ( view.getId () );
+        String btnText=answerBtn.getText ().toString ();
 
-        if(btnText.equals ( rightAnswer )){
-            rightAnswerCount = rightAnswerCount + 2;
+        if (btnText.equals ( rightAnswer )) {
+            rightAnswerCount=rightAnswerCount + 2;
         }
         showNextQuiz ();
-        if(quizArray.isEmpty ()){
-            Intent intent = new Intent (RusActivity.this, ActivityResult.class);
-            String a = String.valueOf ( rightAnswerCount );
-            intent.putExtra ( "key_one", a );
-            startActivity ( intent );
-        }
     }
 
 

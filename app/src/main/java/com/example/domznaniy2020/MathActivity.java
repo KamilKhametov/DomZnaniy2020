@@ -2,7 +2,9 @@ package com.example.domznaniy2020;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -60,6 +62,15 @@ public class MathActivity extends AppCompatActivity {
     }
 
     public void showNextQuiz(){
+
+        if (quizArray.isEmpty ()) {
+            Intent intent=new Intent ( MathActivity.this, ActivityResultForMath.class );
+            String a=String.valueOf ( rightAnswerCount );
+            intent.putExtra ( "key_two", a );
+            startActivity ( intent );
+            return;
+        }
+
         // Обновление QuizCountLabel
         countLabel.setText ( "Q" + quizCount );
 
@@ -87,4 +98,18 @@ public class MathActivity extends AppCompatActivity {
         // Удалить рандомный вариант
         quizArray.remove ( randomNum );
     }
+
+    // Правильный ответ
+    public void checkAnswer( View view ) {
+
+        Button answerBtn=findViewById ( view.getId () );
+        String btnText=answerBtn.getText ().toString ();
+
+        if (btnText.equals ( rightAnswer )) {
+            rightAnswerCount=rightAnswerCount + 2;
+        }
+        showNextQuiz ();
+    }
+
+
 }
