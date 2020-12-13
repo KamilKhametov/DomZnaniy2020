@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DomZnaniy2020">
-        <activity android:name=".HistoryActivity"></activity>
+        <activity android:name=".ActivityForResultSocity"></activity>
+        <activity android:name=".SocietyActivity" />
+        <activity android:name=".ActivityResultForHistory" />
+        <activity android:name=".HistoryActivity" />
         <activity android:name=".ActivityResultForMath" />
         <activity android:name=".ActivityResultForRus" />
         <activity android:name=".MathActivity" />

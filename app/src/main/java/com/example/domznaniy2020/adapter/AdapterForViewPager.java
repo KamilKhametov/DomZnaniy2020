@@ -11,9 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.example.domznaniy2020.HistoryActivity;
 import com.example.domznaniy2020.MathActivity;
 import com.example.domznaniy2020.R;
 import com.example.domznaniy2020.RusActivity;
+import com.example.domznaniy2020.SocietyActivity;
 import com.example.domznaniy2020.model.MyModel;
 
 import java.util.List;
@@ -65,6 +67,12 @@ public class AdapterForViewPager extends PagerAdapter {
                         break;
                     case 1:
                         context.startActivity ( new Intent (context, MathActivity.class ));
+                        break;
+                    case 2:
+                        context.startActivity ( new Intent ( context, HistoryActivity.class ) );
+                        break;
+                    case 3:
+                        context.startActivity (new Intent ( context, SocietyActivity.class ));
                         break;
                     default: break;
                 }

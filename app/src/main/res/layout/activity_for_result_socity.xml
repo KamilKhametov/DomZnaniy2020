@@ -7,7 +7,7 @@
     tools:context=".ActivityResultForRus">
 
     <TextView
-        android:id="@+id/textGetRus"
+        android:id="@+id/textGetSociety"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
@@ -20,16 +20,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnGoRus"
+        android:id="@+id/btnGoSociety"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="157dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="161dp"
         android:text="Далее"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGetRus" />
+        app:layout_constraintTop_toBottomOf="@+id/textGetSociety" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

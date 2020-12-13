@@ -7,7 +7,7 @@
     tools:context=".ActivityResultForRus">
 
     <TextView
-        android:id="@+id/textGet"
+        android:id="@+id/textGetMath"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
@@ -24,11 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="157dp"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="87dp"
         android:layout_marginEnd="161dp"
         android:text="Далее"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGet" />
+        app:layout_constraintTop_toBottomOf="@+id/textGetMath" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

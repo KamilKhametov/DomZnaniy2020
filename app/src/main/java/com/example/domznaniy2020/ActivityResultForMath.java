@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class ActivityResultForMath extends AppCompatActivity {
 
-    TextView textGet;
+    TextView textGetMath;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -19,11 +19,11 @@ public class ActivityResultForMath extends AppCompatActivity {
 
         sharedPreferences = getApplicationContext ().getSharedPreferences ( "NICE_TWO", MODE_PRIVATE );
 
-        textGet = findViewById ( R.id.textGet );
+        textGetMath= findViewById ( R.id.textGetMath );
 
         Intent intent = getIntent ();
         String getData = intent.getStringExtra ( "key_two" );
-        textGet.setText ( "Ваш результат: " + getData );
+        textGetMath.setText ( "Ваш результат: " + getData );
         saveResult ( getData );
     }
 

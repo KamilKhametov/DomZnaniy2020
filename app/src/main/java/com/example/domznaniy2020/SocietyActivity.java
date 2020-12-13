@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class HistoryActivity extends AppCompatActivity {
+public class SocietyActivity extends AppCompatActivity {
+
     public TextView countLabel;
     public TextView questionLabel;
     public Button answer1;
@@ -30,16 +31,16 @@ public class HistoryActivity extends AppCompatActivity {
 
     String quizData[][]={
             // {"Question", "Right Answer", "choise1", "choise2", "choise3"}
-            {"Германский план нападения на СССР («Барбаросса») предусматривал:", "Расчленение СССР на отдельные государства", "Колонизацию Германией всей территории СССР", "Уничтожение единого государства, колонизацию европейской части  СССР.", "Колонизацию Германией всей территории СССР"},
-            {"Высшим государственным органом, сосредоточившим всю полноту власти в годы Великой Отечественной войны стал:", "Совет труда и обороны", "Государственный комитет обороны", " Совет труда и обороны", "Совет труда и обороны"},
-            {"В чем заключалось значение битвы за Москву?", "Был сорван план молниеносной войны", "Был открыт второй фронт в Европе", "Стратегическая инициатива перешла в руки советского командования.", "Стратегическая инициатива перешла в руки советского командования."},
-            {"В каком году СССР превзошел Германию по выпуску военной продукции:", "В начале 1944 г.", ".В конце 1942 г.", "В конце 1942 г.", "В середине 1943 г."}
+            {"Кто защищает права подсудимого и защищает его интересы", "прокурор", "адвокат", "частный детектив", "нотариус"},
+            {"Особые действия,  совершаемые специальными лицами в строгой последовательности:", "ритуал", "обряд", "привычка", "закон"},
+            {"Мера воздействия, применяемая к нарушителям установленных норм, правил:", "право", "норма", "порядок", "санкция"},
+            {"Ниже приведен перечень терминов.Все они за исключением одного, соответствуют понятию \"участники судебного процесса\". Укажите термин, не относящийся к данному понятию", "адвокат", "нотариус", "прокурор", "судья"}
     };
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_history );
+        setContentView ( R.layout.activity_society );
 
         countLabel=findViewById ( R.id.countLabel );
         questionLabel=findViewById ( R.id.questionLabel );
@@ -65,9 +66,9 @@ public class HistoryActivity extends AppCompatActivity {
     public void showNextQuiz() {
 
         if (quizArray.isEmpty ()) {
-            Intent intent=new Intent ( HistoryActivity.this, ActivityResultForHistory.class );
+            Intent intent=new Intent ( SocietyActivity.this, ActivityForResultSocity.class );
             String a=String.valueOf ( rightAnswerCount );
-            intent.putExtra ( "key_three", a );
+            intent.putExtra ( "key_four", a );
             startActivity ( intent );
             return;
         }

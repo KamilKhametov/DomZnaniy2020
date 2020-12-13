@@ -7,23 +7,23 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ActivityResultForRus extends AppCompatActivity {
+public class ActivityForResultSocity extends AppCompatActivity {
 
-    TextView textGetRus;
+    TextView textGetSociety;
     SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_result_for_rus );
+        setContentView ( R.layout.activity_for_result_socity );
 
-        sharedPreferences = getApplicationContext ().getSharedPreferences ( "NICE", MODE_PRIVATE );
+        sharedPreferences = getApplicationContext ().getSharedPreferences ( "NICE_FOUR", MODE_PRIVATE );
 
-        textGetRus = findViewById ( R.id.textGetRus );
+        textGetSociety= findViewById ( R.id.textGetSociety );
 
         Intent intent = getIntent ();
-        String getData = intent.getStringExtra ( "key_one" );
-        textGetRus.setText ( "Ваш результат: " + getData );
+        String getData = intent.getStringExtra ( "key_four" );
+        textGetSociety.setText ( "Ваш результат: " + getData );
         saveResult ( getData );
     }
 
@@ -32,5 +32,4 @@ public class ActivityResultForRus extends AppCompatActivity {
         editor.putString ( "key_save", getData );
         editor.apply ();
     }
-
 }
